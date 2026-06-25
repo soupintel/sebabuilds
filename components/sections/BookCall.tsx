@@ -1,0 +1,21 @@
+"use client";
+
+import { useThemeSection } from "@/components/ScrollTheme";
+
+// Placeholder — real content lands in Prompt 2.
+export default function BookCall() {
+  const ref = useThemeSection<HTMLElement>("cta");
+
+  return (
+    <section
+      ref={ref}
+      data-theme="cta"
+      className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center"
+    >
+      <p className="font-body text-xs uppercase tracking-[0.35em] text-accent">
+        cta
+      </p>
+      <h2 className="font-display text-6xl leading-none md:text-8xl">Book a Call</h2>
+    </section>
+  );
+}

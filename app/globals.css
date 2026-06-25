@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme system.
+ * ScrollTheme.tsx sets data-theme on <html> as sections enter the viewport.
+ * Each theme block defines the CSS variables that cascade into every section.
+ * --font-* variables are injected by next/font in layout.tsx.
+ */
+
+:root {
+  /* Default to the editorial (Hero) theme so first paint is correct. */
+  --bg: #0a0a0a;
+  --fg: #f0ece2;
+  --accent: #c8a96e;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-mono);
+}
+
+html[data-theme="editorial"] {
+  --bg: #0a0a0a;
+  --fg: #f0ece2;
+  --accent: #c8a96e;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-mono);
+}
+
+html[data-theme="spiritual"] {
+  --bg: #f5f0eb;
+  --fg: #2d2420;
+  --accent: #9b7fa6;
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-lato);
+}
+
+html[data-theme="rugged"] {
+  --bg: #1c2318;
+  --fg: #e8dcc8;
+  --accent: #6b8c3e;
+  --font-display: var(--font-bebas);
+  --font-body: var(--font-source-sans);
+}
+
+html[data-theme="tropical"] {
+  --bg: #fff8f0;
+  --fg: #1a1a1a;
+  --accent: #e8623a;
+  --font-display: var(--font-pacifico);
+  --font-body: var(--font-nunito);
+}
+
+html[data-theme="minimal"] {
+  --bg: #ffffff;
+  --fg: #111111;
+  --accent: #111111;
+  --font-display: var(--font-space-mono);
+  --font-body: var(--font-space-mono);
+}
+
+html[data-theme="cta"] {
+  --bg: #e8623a;
+  --fg: #ffffff;
+  --accent: #ffffff;
+  --font-display: var(--font-syne);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  /* The morph: smooth color crossfade as the active theme swaps. */
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
