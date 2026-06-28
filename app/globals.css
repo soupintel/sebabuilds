@@ -66,9 +66,9 @@
   --font-body: var(--font-inter);
 }
 
-/* Each section locks in its own bg/color/font — immune to html[data-theme] flicker */
+/* Each section locks in its own color/font vars — immune to html[data-theme] flicker.
+   No background-color here so the transitioning body background shows through. */
 section[data-theme] {
-  background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
 }
