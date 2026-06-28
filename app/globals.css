@@ -4,13 +4,13 @@
 
 /*
  * Theme system.
- * ScrollTheme.tsx sets data-theme on <html> as sections enter the viewport.
- * Each theme block defines the CSS variables that cascade into every section.
- * --font-* variables are injected by next/font in layout.tsx.
+ * [data-theme] applies to both <html> and <section> elements.
+ * Sections always inherit colors/fonts from their own data-theme attribute,
+ * so fast-scroll race conditions on <html> never affect section content.
+ * <html> data-theme only drives the body background morph between sections.
  */
 
 :root {
-  /* Default to the editorial (Hero) theme so first paint is correct. */
   --bg: #0a0a0a;
   --fg: #f0ece2;
   --accent: #c8a96e;
@@ -18,7 +18,7 @@
   --font-body: var(--font-dm-mono);
 }
 
-html[data-theme="editorial"] {
+[data-theme="editorial"] {
   --bg: #0a0a0a;
   --fg: #f0ece2;
   --accent: #c8a96e;
@@ -26,7 +26,7 @@ html[data-theme="editorial"] {
   --font-body: var(--font-dm-mono);
 }
 
-html[data-theme="spiritual"] {
+[data-theme="spiritual"] {
   --bg: #f5f0eb;
   --fg: #2d2420;
   --accent: #9b7fa6;
@@ -34,7 +34,7 @@ html[data-theme="spiritual"] {
   --font-body: var(--font-lato);
 }
 
-html[data-theme="rugged"] {
+[data-theme="rugged"] {
   --bg: #1c2318;
   --fg: #e8dcc8;
   --accent: #6b8c3e;
@@ -42,7 +42,7 @@ html[data-theme="rugged"] {
   --font-body: var(--font-source-sans);
 }
 
-html[data-theme="tropical"] {
+[data-theme="tropical"] {
   --bg: #fff8f0;
   --fg: #1a1a1a;
   --accent: #e8623a;
@@ -50,7 +50,7 @@ html[data-theme="tropical"] {
   --font-body: var(--font-nunito);
 }
 
-html[data-theme="minimal"] {
+[data-theme="minimal"] {
   --bg: #ffffff;
   --fg: #111111;
   --accent: #111111;
@@ -58,12 +58,19 @@ html[data-theme="minimal"] {
   --font-body: var(--font-space-mono);
 }
 
-html[data-theme="cta"] {
+[data-theme="cta"] {
   --bg: #e8623a;
   --fg: #ffffff;
   --accent: #ffffff;
   --font-display: var(--font-syne);
   --font-body: var(--font-inter);
+}
+
+/* Each section locks in its own color/font vars — immune to html[data-theme] flicker.
+   No background-color here so the transitioning body background shows through. */
+section[data-theme] {
+  color: var(--fg);
+  font-family: var(--font-body);
 }
 
 html,
@@ -75,6 +82,5 @@ body {
   background-color: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  /* The morph: smooth color crossfade as the active theme swaps. */
-  transition: background-color 0.6s ease, color 0.6s ease;
+  transition: background-color 0.6s ease;
 }
