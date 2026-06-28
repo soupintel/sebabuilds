@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 import { useThemeSection } from "@/components/ScrollTheme";
 
-export default function WorkASAP() {
-  const ref = useThemeSection<HTMLElement>("rugged");
+export default function WorkAPWH() {
+  const ref = useThemeSection<HTMLElement>("minimal");
 
   return (
     <section
       ref={ref}
-      data-theme="rugged"
+      data-theme="minimal"
       className="flex min-h-screen items-center px-6 py-20 md:px-16"
     >
       <motion.div
@@ -21,16 +21,16 @@ export default function WorkASAP() {
       >
         <div className="flex flex-col gap-4 md:w-1/2">
           <p className="font-body text-xs uppercase tracking-[0.15em] text-accent md:tracking-[0.35em]">
-            Local Service Business
+            Study Tool
           </p>
           <h2 className="font-display text-5xl leading-tight md:text-7xl">
-            ASAP Tree Service
+            apwh-graphs
           </h2>
           <p className="font-body max-w-sm text-base leading-relaxed opacity-70">
-            Lead-gen site for a tree service company. Built to rank locally and convert mobile visitors.
+            Interactive graph tool for AP World History students. Built and used it myself.
           </p>
           <a
-            href="https://asap-tree-service.vercel.app"
+            href="https://apwh-graphs.lcidk.xyz"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-flex w-fit items-center gap-2 font-body text-xs uppercase tracking-[0.25em] text-accent underline underline-offset-4 transition-opacity hover:opacity-60"
@@ -52,12 +52,14 @@ export default function WorkASAP() {
             className="w-56 h-56 md:w-80 md:h-80"
             aria-hidden="true"
           >
-            <rect x="88" y="138" width="24" height="52" rx="3" fill="currentColor" opacity="0.65" />
-            <path d="M88 182 Q72 190 58 185" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.4" />
-            <path d="M112 182 Q128 190 142 185" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.4" />
-            <polygon points="100,18 150,92 50,92" fill="var(--accent)" />
-            <polygon points="100,48 156,118 44,118" fill="var(--accent)" opacity="0.82" />
-            <polygon points="100,78 160,148 40,148" fill="var(--accent)" opacity="0.65" />
+            <line x1="28" y1="22" x2="28" y2="168" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <line x1="28" y1="168" x2="178" y2="168" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <rect x="42" y="112" width="26" height="56" rx="2" fill="currentColor" opacity="0.22" />
+            <rect x="78" y="68" width="26" height="100" rx="2" fill="var(--accent)" />
+            <rect x="114" y="88" width="26" height="80" rx="2" fill="currentColor" opacity="0.22" />
+            <rect x="150" y="42" width="26" height="126" rx="2" fill="var(--accent)" opacity="0.6" />
+            <line x1="22" y1="88" x2="28" y2="88" stroke="currentColor" strokeWidth="2" opacity="0.4" />
+            <line x1="22" y1="128" x2="28" y2="128" stroke="currentColor" strokeWidth="2" opacity="0.4" />
           </svg>
         </motion.div>
       </motion.div>
