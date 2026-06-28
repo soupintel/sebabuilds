@@ -3,25 +3,75 @@
 @tailwind utilities;
 
 /*
- * Theme system: ONLY background color changes on scroll.
- * Font, text color, and accent are fixed across all sections.
- * ScrollTheme.tsx swaps data-theme on <html>; only --bg is theme-specific.
+ * Theme system.
+ * [data-theme] applies to both <html> and <section> elements.
+ * Sections always inherit colors/fonts from their own data-theme attribute,
+ * so fast-scroll race conditions on <html> never affect section content.
+ * <html> data-theme only drives the body background morph between sections.
  */
 
 :root {
-  --bg: #f2ede7;
-  --fg: #1a1a1a;
-  --accent: #8b6e52;
+  --bg: #0a0a0a;
+  --fg: #f0ece2;
+  --accent: #c8a96e;
   --font-display: var(--font-playfair);
   --font-body: var(--font-dm-mono);
 }
 
-html[data-theme="editorial"]  { --bg: #f2ede7; }
-html[data-theme="spiritual"]  { --bg: #f5f0eb; }
-html[data-theme="rugged"]     { --bg: #e5ddd1; }
-html[data-theme="tropical"]   { --bg: #fff8f0; }
-html[data-theme="minimal"]    { --bg: #f9f9f9; }
-html[data-theme="cta"]        { --bg: #fde8da; }
+[data-theme="editorial"] {
+  --bg: #0a0a0a;
+  --fg: #f0ece2;
+  --accent: #c8a96e;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-mono);
+}
+
+[data-theme="spiritual"] {
+  --bg: #f5f0eb;
+  --fg: #2d2420;
+  --accent: #9b7fa6;
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-lato);
+}
+
+[data-theme="rugged"] {
+  --bg: #1c2318;
+  --fg: #e8dcc8;
+  --accent: #6b8c3e;
+  --font-display: var(--font-bebas);
+  --font-body: var(--font-source-sans);
+}
+
+[data-theme="tropical"] {
+  --bg: #fff8f0;
+  --fg: #1a1a1a;
+  --accent: #e8623a;
+  --font-display: var(--font-pacifico);
+  --font-body: var(--font-nunito);
+}
+
+[data-theme="minimal"] {
+  --bg: #ffffff;
+  --fg: #111111;
+  --accent: #111111;
+  --font-display: var(--font-space-mono);
+  --font-body: var(--font-space-mono);
+}
+
+[data-theme="cta"] {
+  --bg: #e8623a;
+  --fg: #ffffff;
+  --accent: #ffffff;
+  --font-display: var(--font-syne);
+  --font-body: var(--font-inter);
+}
+
+/* Each section locks in its own bg/color/font — immune to html[data-theme] flicker */
+section[data-theme] {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
 
 html,
 body {
