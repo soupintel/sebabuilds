@@ -28,31 +28,34 @@ export default function Services() {
     <section
       ref={ref}
       data-theme="minimal"
-      className="flex min-h-screen flex-col items-center justify-center px-6 py-20 md:px-16"
+      className="relative flex min-h-screen flex-col justify-center px-8 py-20 md:px-14"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mx-auto w-full max-w-5xl"
       >
-        <p className="mb-4 font-body text-xs uppercase tracking-[0.15em] text-accent md:tracking-[0.35em]">
+        <p className="mb-4 font-body text-xs uppercase tracking-[0.35em] text-accent">
           Services
         </p>
-        <h2 className="mb-8 font-display text-4xl leading-none md:mb-16 md:text-7xl">
+        <h2 className="mb-10 font-display text-[10vw] leading-none md:mb-14 md:text-[8vw]">
           What I build.
         </h2>
-        <div className="grid grid-cols-1 gap-px md:grid-cols-3">
+
+        {/* HR above cards */}
+        <div className="h-px w-full bg-fg opacity-15" />
+
+        <div className="grid grid-cols-1 divide-y border border-fg/10 divide-fg/10 md:grid-cols-3 md:divide-x md:divide-y-0">
           {tiers.map((tier) => (
-            <div key={tier.name} className="flex flex-col gap-6 border border-fg/10 p-8">
+            <div key={tier.name} className="flex flex-col gap-6 p-10 md:p-12">
               <div>
                 <p className="font-body text-xs uppercase tracking-[0.25em] opacity-50">
                   {tier.name}
                 </p>
-                <p className="mt-2 font-display text-4xl">{tier.price}</p>
+                <p className="mt-3 font-display text-5xl md:text-6xl">{tier.price}</p>
               </div>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col gap-3">
                 {tier.items.map((item) => (
                   <li key={item} className="font-body text-sm opacity-60">
                     — {item}
@@ -62,7 +65,11 @@ export default function Services() {
             </div>
           ))}
         </div>
-        <p className="mt-6 font-body text-xs opacity-40">
+
+        {/* HR below cards */}
+        <div className="h-px w-full bg-fg opacity-15" />
+
+        <p className="mt-8 font-body text-xs opacity-40">
           Rush delivery (under 5 days) adds 50%.
         </p>
       </motion.div>

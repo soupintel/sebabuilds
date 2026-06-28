@@ -66,11 +66,25 @@
   --font-body: var(--font-inter);
 }
 
-/* Each section locks in its own color/font vars — immune to html[data-theme] flicker.
-   No background-color here so the transitioning body background shows through. */
+/* Each section locks in its own color/font vars — immune to html[data-theme] flicker. */
 section[data-theme] {
   color: var(--fg);
   font-family: var(--font-body);
+  background-color: var(--bg);
+  position: relative;
+}
+
+/* Grain texture overlay on editorial + CTA sections */
+section[data-theme="editorial"]::after,
+section[data-theme="cta"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
 html,
