@@ -68,7 +68,7 @@ export default function WorkDulce() {
       </div>
 
       {/* Desktop layout — SVG large center-right, text overlaid left */}
-      <div className="relative hidden min-h-screen md:block">
+      <div className="relative hidden min-h-screen items-center md:flex">
         {/* Huge SVG — center-right, nearly full viewport height */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -101,7 +101,7 @@ export default function WorkDulce() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="absolute left-14 top-1/2 z-10 -translate-y-1/2 max-w-[40%]"
+          className="relative z-10 pl-14 max-w-[40%]"
         >
           <p className="font-body text-xs uppercase tracking-[0.35em] text-accent">
             Restaurant

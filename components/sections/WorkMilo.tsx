@@ -76,12 +76,12 @@ export default function WorkMilo() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-none absolute right-[-14%] top-1/2 hidden -translate-y-1/2 md:block"
+        className="pointer-events-none absolute right-[-16%] top-1/2 hidden -translate-y-1/2 md:block"
       >
         <svg
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-[58vw] w-[58vw]"
+          className="h-[min(58vw,86vh)] w-[min(58vw,86vh)]"
           aria-hidden="true"
         >
           <defs>

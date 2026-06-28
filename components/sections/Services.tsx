@@ -28,7 +28,7 @@ export default function Services() {
     <section
       ref={ref}
       data-theme="minimal"
-      className="relative flex min-h-screen flex-col justify-center px-8 py-20 md:px-14"
+      className="relative flex min-h-screen flex-col justify-center px-8 py-12 md:px-14 md:py-0"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
