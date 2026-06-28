@@ -35,19 +35,33 @@ export function ScrollThemeProvider({ children }: { children: ReactNode }) {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const themes = useRef<Map<Element, ThemeName>>(new Map());
 
+  const ratios = useRef<Map<Element, number>>(new Map());
+
   useEffect(() => {
+    const applyDominantTheme = () => {
+      let bestEl: Element | null = null;
+      let bestRatio = -1;
+      ratios.current.forEach((ratio, el) => {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestEl = el;
+        }
+      });
+      if (bestEl) {
+        const theme = themes.current.get(bestEl);
+        if (theme) document.documentElement.setAttribute("data-theme", theme);
+      }
+    };
+
+    const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-            const theme = themes.current.get(entry.target);
-            if (theme) {
-              document.documentElement.setAttribute("data-theme", theme);
-            }
-          }
+          ratios.current.set(entry.target, entry.intersectionRatio);
         }
+        applyDominantTheme();
       },
-      { threshold: 0.4 },
+      { threshold: thresholds },
     );
     observerRef.current = observer;
 
@@ -63,11 +77,13 @@ export function ScrollThemeProvider({ children }: { children: ReactNode }) {
 
   const register = useCallback((el: Element, theme: ThemeName) => {
     themes.current.set(el, theme);
+    ratios.current.set(el, 0);
     observerRef.current?.observe(el);
   }, []);
 
   const unregister = useCallback((el: Element) => {
     themes.current.delete(el);
+    ratios.current.delete(el);
     observerRef.current?.unobserve(el);
   }, []);
 
