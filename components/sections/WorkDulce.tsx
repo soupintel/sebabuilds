@@ -70,7 +70,7 @@ export default function WorkDulce() {
       {/* Desktop layout — SVG large center-right, text overlaid left */}
       <div className="relative hidden min-h-screen items-center md:flex">
         {/* Huge SVG — center-right, nearly full viewport height */}
-        <div className="pointer-events-none absolute right-[-4%] top-1/2 -translate-y-1/2">
+        <div className="pointer-events-none absolute right-[2%] top-1/2 -translate-y-1/2">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

@@ -65,7 +65,7 @@ export default function WorkASAP() {
       </div>
 
       {/* Desktop SVG — absolute, bleeding off left edge */}
-      <div className="pointer-events-none absolute left-[-14%] top-1/2 hidden -translate-y-1/2 md:block">
+      <div className="pointer-events-none absolute left-[-6%] top-1/2 hidden -translate-y-1/2 md:block">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
