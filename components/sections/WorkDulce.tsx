@@ -32,7 +32,7 @@ export default function WorkDulce() {
           <p className="font-body text-xs uppercase tracking-[0.35em] text-accent">
             Restaurant
           </p>
-          <h2 className="font-display text-[14vw] leading-[0.9]">
+          <h2 className="font-display text-[14vw] leading-[0.9] pb-3">
             Dulce<br />Tropical
           </h2>
           <p className="font-body max-w-xs text-sm leading-relaxed opacity-60">
@@ -70,30 +70,31 @@ export default function WorkDulce() {
       {/* Desktop layout — SVG large center-right, text overlaid left */}
       <div className="relative hidden min-h-screen items-center md:flex">
         {/* Huge SVG — center-right, nearly full viewport height */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-none absolute right-[-4%] top-1/2 -translate-y-1/2"
-        >
-          <svg
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-[80vh] w-[80vh]"
-            aria-hidden="true"
+        <div className="pointer-events-none absolute right-[-4%] top-1/2 -translate-y-1/2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <path d="M 28 118 Q 28 48 100 48 Q 172 48 172 118 Q 136 168 100 168 Q 64 168 28 118 Z" fill="var(--accent)" />
-            <ellipse cx="82" cy="88" rx="22" ry="13" fill="white" opacity="0.18" transform="rotate(-18 82 88)" />
-            <path d="M 28 118 Q 64 158 100 162 Q 136 158 172 118" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" opacity="0.55" />
-            <path d="M 42 142 L 52 130" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-            <path d="M 62 156 L 72 144" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-            <path d="M 84 163 L 94 151" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-            <path d="M 106 163 L 116 151" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-            <path d="M 128 156 L 138 144" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-            <path d="M 148 142 L 158 130" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
-          </svg>
-        </motion.div>
+            <svg
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-[65vh] w-[65vh]"
+              aria-hidden="true"
+            >
+              <path d="M 28 118 Q 28 48 100 48 Q 172 48 172 118 Q 136 168 100 168 Q 64 168 28 118 Z" fill="var(--accent)" />
+              <ellipse cx="82" cy="88" rx="22" ry="13" fill="white" opacity="0.18" transform="rotate(-18 82 88)" />
+              <path d="M 28 118 Q 64 158 100 162 Q 136 158 172 118" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" opacity="0.55" />
+              <path d="M 42 142 L 52 130" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <path d="M 62 156 L 72 144" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <path d="M 84 163 L 94 151" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <path d="M 106 163 L 116 151" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <path d="M 128 156 L 138 144" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+              <path d="M 148 142 L 158 130" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+            </svg>
+          </motion.div>
+        </div>
 
         {/* Text — left overlay */}
         <motion.div
@@ -106,7 +107,7 @@ export default function WorkDulce() {
           <p className="font-body text-xs uppercase tracking-[0.35em] text-accent">
             Restaurant
           </p>
-          <h2 className="mt-4 font-display text-[8vw] leading-[0.88]">
+          <h2 className="mt-4 font-display text-[8vw] leading-[0.88] pb-3">
             Dulce<br />Tropical
           </h2>
           <p className="mt-5 font-body text-sm leading-relaxed opacity-70 max-w-xs">
